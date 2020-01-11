@@ -48,7 +48,6 @@ class LSTMNER:
         self.TIME_STAMPS = 150
         self.embedding_matrix = self.build_embedding_matrix()
 
-    '''构造数据集'''
     def build_data(self):
         datas = []
         sample_x = []
