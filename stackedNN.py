@@ -14,13 +14,13 @@ import os
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
-class LSTMNER:
+class SNNNER:
     def __init__(self):
         cur = '/'.join(os.path.abspath(__file__).split('/')[:-1])
         self.train_path = os.path.join(cur, 'data/ccks2018.txt')
         self.vocab_path = os.path.join(cur, 'model/vocab.txt')
         self.embedding_file = os.path.join(cur, 'model/token_vec_300.bin')
-        self.model_path = os.path.join(cur, 'model/tokenvec_bilstm2_crf_model_20.h5')
+        self.model_path = os.path.join(cur, 'model/tokenvec_bilstm_bigru_crf_model_20.h5')
         self.datas, self.word_dict = self.build_data()
         self.class_dict ={'O': 0,
 
@@ -106,7 +106,7 @@ class LSTMNER:
                 embedding_matrix[i] = embedding_vector
         return embedding_matrix
 
-    def tokenvec_bilstm2_crf_model(self):
+    def tokenvec_bilstm_bigru_crf_model(self):
         model = Sequential()
         embedding_layer = Embedding(self.VOCAB_SIZE + 1,
                                     self.EMBEDDING_DIM,
@@ -163,5 +163,5 @@ class LSTMNER:
         return fbeta_score
 
 if __name__ == '__main__':
-    ner = LSTMNER()
+    ner = SNNNER()
     ner.train_model()
