@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # coding: utf-8
-# File: main.py
+# File: stackedNN.py
 # Author: 798445653@qq.com,https://github.com/ruoyuu/Stacked-Neural-Network
 # Date: 19-01-01
 
@@ -20,7 +20,7 @@ class SNNNER:
         self.train_path = os.path.join(cur, 'data/ccks2018.txt')
         self.vocab_path = os.path.join(cur, 'model/vocab.txt')
         self.embedding_file = os.path.join(cur, 'model/token_vec_300.bin')
-        self.model_path = os.path.join(cur, 'model/tokenvec_bilstm_bigru_crf_model_20.h5')
+        self.model_path = os.path.join(cur, 'model/tokenvec_bilstm_crf_model_20.h5')
         self.datas, self.word_dict = self.build_data()
         self.class_dict ={'O': 0,
 
